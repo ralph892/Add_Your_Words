@@ -1,0 +1,71 @@
+@layer components {
+
+    .form-adding_container{
+        @apply flex justify-center;
+        margin-top: var(--mg-top);
+        margin-bottom: var(--mg-bottom)
+    }
+
+    .form_adding{
+        @apply flex flex-col items-center gap-5;
+        width: 50%;
+    }
+
+    .form_section{
+        @apply flex flex-col w-full;
+    }
+
+    .form-adding_label{
+        @apply font-medium;
+        color: var(--primary-color);
+    }
+
+    .form-radio{
+        @apply flex gap-10;
+    }
+    .form-radio_section{
+        @apply flex gap-4; 
+    }
+
+    .form_input{
+        @apply py-2 px-5;
+        border: 2px solid var(--border-input-color);
+        border-radius: 10px;
+        outline:none;
+    }
+    .form_input:focus{
+        border: 2px solid var(--primary-color-hover);
+    }
+
+    .form-defs_container{
+        @apply flex flex-col gap-5 my-3;
+    }
+    .form-defs_section{
+        @apply flex flex-col;
+    }
+    .form-defs_btn{
+        @apply text-sm;
+        margin-top:10px;
+        padding: 5px;
+        align-self: end;
+        width: fit-content;
+        border-radius: 10px;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+    }
+    .form-defs_btn:hover{
+        background-color: var(--primary-color-hover);
+    }
+
+    .form-adding_btn{
+        width: 50%;
+        align-items: center;
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .form-adding_btn:hover{
+        background-color: var(--primary-color-hover);
+    }
+}

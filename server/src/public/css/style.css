@@ -1,0 +1,11 @@
+.search_container{
+    position: relative;
+} 
+.tooltip_container{
+    position: absolute;
+    left: 25%;
+}
+.tooltip_word{
+    border: none;
+    background-color: transparent;
+}

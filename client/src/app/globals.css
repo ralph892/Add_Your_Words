@@ -1,0 +1,135 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "../components/AWord/AWord.css";
+@import "../app/AddWordPage/AddWord.css";
+@import "../components/HeadlessTippy/Headless.css";
+@import "../app/ListPage/ListPage.css";
+@import "../app/LoginPage/LoginPage.css";
+@import "../app/RegisterPage/RegisterPage.css";
+@import "../components/ActionTippy/ActionTippy.css";
+
+:root{
+    --primary-color: rgb(237, 38, 71);
+    --primary-color-hover: rgb(235, 122, 141);
+    --border-input-color: rgb(154, 154, 154);
+    --white-color: white;
+    --bg-container-color: rgba(255, 255, 255, 0.452);
+    --bg-container-login-color: rgb(241, 241, 241);
+
+    --mg-top: 100px;
+    --mg-bottom: 50px;
+}
+
+@layer components {
+    .container{
+        background-image: url('/images/background.jpg');
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
+
+    .navbar{
+        @apply grid fixed w-full font-medium items-center;
+        grid-template-columns: 50% 50%;
+        color: black;
+        background-color: var(--bg-container-color);
+        height: 40px;
+        z-index: 10;
+        top:0;
+    }
+
+    .navbar button:hover{
+        color: var(--primary-color);
+    }
+
+    .action-btn_container{
+        @apply flex items-center justify-self-start gap-5;
+        margin-left: 20px;
+    }
+
+    .account-btn_container{
+        @apply flex items-center justify-self-end gap-3;
+        margin-right: 20px;
+    }
+
+    .login_btn{
+        padding: 5px 15px;
+        border: 1px solid transparent;
+        background-color: var(--primary-color);
+        border-radius: 20px;
+        width:fit-content;
+    }
+    .login_btn:hover{
+        background-color: var(--primary-color-hover);
+        color: var(--white-color) !important;
+        border: 1px solid var(--white-color);
+    }
+    .register_btn{
+        padding: 5px 15px;
+        border: 1px solid transparent;
+        background-color: var(--white-color);
+        border-radius: 20px;
+        width: fit-content;
+    }
+    .register_btn:hover{
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    .account-user_container{
+        @apply flex items-center justify-self-end gap-5 ;
+        margin-right: 20px;
+    }
+    .account-avatar{
+        width:40px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+    }
+
+    .form_container{
+        background-color: var(--bg-container-color);
+        margin-top: var(--mg-top);
+        width: 75%;
+        border: 1px solid var(--primary-color);
+        border-radius: 10px;
+    }
+
+    .header{
+        @apply font-bold mx-5 my-2 text-center text-white text-2xl;
+    }
+
+    .search_container{
+        @apply flex flex-row items-center justify-center w-full;
+        color: var(--primary-color);
+        margin-top: calc(var(--mg-bottom) / 2);
+        margin-bottom: var(--mg-bottom);
+    }
+
+    .search_empty{
+        @apply w-1/12 h-8;
+    }
+    
+    .search_input{
+        @apply w-10/12 h-8 border-2 border-black px-5 rounded font-bold;
+    }
+    .search_input:focus{
+        border: 2px solid var(--primary-color);
+        outline: none;
+    }
+    .search_btn{
+        @apply w-1/12 h-8;
+    }
+
+    .search_icon{
+        @apply w-full h-full;
+    }
+
+}
+

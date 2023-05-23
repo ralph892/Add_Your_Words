@@ -1,0 +1,22 @@
+@layer components {
+    .form-login_container{
+        @apply flex justify-center;
+        margin-top: var(--mg-top);
+        background-color: var(--bg-container-login-color);
+    }
+    
+    .form_login{
+        @apply flex flex-col gap-5;
+        width: 35%;
+        margin-top: calc(var(--mg-top) / 2);
+        margin-bottom: var(--mg-bottom);
+        background-color: var(--white-color);
+        padding: 10px 5%;
+        border: 2px solid var(--primary-color);
+        border-radius: 10px;
+    }
+
+    .form-header{
+        @apply text-3xl font-medium;
+    }
+}

@@ -1,0 +1,5 @@
+@layer components{
+    .list_container{
+        margin-top: var(--mg-top);
+    }
+}

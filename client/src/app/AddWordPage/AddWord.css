@@ -1,14 +1,11 @@
 @layer components {
 
     .form-adding_container{
-        @apply flex justify-center;
-        margin-top: var(--mg-top);
-        margin-bottom: var(--mg-bottom)
+        @apply flex justify-center lg:mt-100 mb-50;
     }
 
     .form_adding{
-        @apply flex flex-col items-center gap-5;
-        width: 50%;
+        @apply flex flex-col items-center gap-5 mt-100 lg:mt-0 w-4/5 lg:w-1/2;
     }
 
     .form_section{
@@ -21,7 +18,7 @@
     }
 
     .form-radio{
-        @apply flex gap-10;
+        @apply flex flex-col md:flex-row md:gap-10;
     }
     .form-radio_section{
         @apply flex gap-4; 
@@ -42,30 +39,5 @@
     }
     .form-defs_section{
         @apply flex flex-col;
-    }
-    .form-defs_btn{
-        @apply text-sm;
-        margin-top:10px;
-        padding: 5px;
-        align-self: end;
-        width: fit-content;
-        border-radius: 10px;
-        background-color: var(--primary-color);
-        color: var(--white-color);
-    }
-    .form-defs_btn:hover{
-        background-color: var(--primary-color-hover);
-    }
-
-    .form-adding_btn{
-        width: 50%;
-        align-items: center;
-        background-color: var(--primary-color);
-        color: var(--white-color);
-        padding: 10px;
-        border-radius: 10px;
-    }
-    .form-adding_btn:hover{
-        background-color: var(--primary-color-hover);
     }
 }

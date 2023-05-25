@@ -6,37 +6,27 @@
         margin: 10px;
     }
     .word_header{
-        @apply font-medium text-3xl flex gap-2 items-center;
+        @apply font-medium text-2xl lg:text-3xl flex gap-2 items-center;
         color: var(--primary-color);
     }
     .word_subtitle{
-        @apply text-sm italic;
+        @apply text-xs md:text-sm italic;
     }
     .word_special{
-        @apply text-base font-normal;
+        @apply text-sm md:text-base font-normal;
     }
     .word_meaning{
-        @apply font-medium flex gap-2 ;
+        @apply font-medium text-sm md:text-base flex gap-2 ;
     }
     .word_icon{
         color: var(--primary-color);
         transform: translateY(4px)
     }
     .word_vietnamese{
-        @apply font-normal;
+        @apply font-normal text-base md:text-lg;
         color: var(--primary-color);
     }
     .button_container{
         @apply flex justify-end gap-3;
-    }
-    .word_btn{
-        @apply flex items-center p-1 rounded-full;
-        border: 2px solid var(--primary-color);
-        /* background-color: var(--primary-color); */
-        /* color: white; */
-    }
-    .word_btn:hover{
-        background-color: var(--primary-color);
-        color: white;
     }
 }

@@ -3,6 +3,7 @@ import { addWord } from "@/api/apiWords";
 import React, { useEffect } from "react";
 import { IBody } from "@/api/apiWords";
 import authMiddleware from "@/authMiddleware";
+import { Button } from "@/components/Button";
 
 
 
@@ -148,16 +149,18 @@ export default function Page () {
                             </div>
                         )
                     })}
-                    <button 
+                    <Button 
                     onClick={(e) => handleAddMeaning(e)}
-                    className="form-defs_btn"
-                    >Add more meaning</button>
+                    xsmall
+                    primary
+                    >Add more meaning</Button>
                 </div>
                 
-                <button 
+                <Button 
                 onClick={(e) => handleAddWord(e)}
-                className="form-adding_btn"
-                > Add word </button>
+                primary
+                large
+                > Add word </Button>
             </form> }
         </div>
         )  

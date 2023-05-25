@@ -1,15 +1,11 @@
 @layer components {
     .form-register_container {
-        @apply flex justify-center;
-        margin-top: var(--mg-top);
+        @apply flex justify-center md:pt-100;
         background-color: var(--bg-container-login-color);
     }
 
     .form_register {
-        @apply flex flex-col gap-5;
-        width: 35%;
-        margin-top: calc(var(--mg-top) / 2);
-        margin-bottom: var(--mg-bottom);
+        @apply flex flex-col gap-5 w-4/5 lg:w-2/5 mt-50 mb-50;
         background-color: var(--white-color);
         padding: 10px 5%;
         border: 2px solid var(--primary-color);
@@ -21,6 +17,7 @@
     }
 
     .invalid-message{
+        @apply text-sm;
         height: 10px;
         color: red;
     }

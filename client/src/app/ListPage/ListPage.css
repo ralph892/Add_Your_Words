@@ -1,5 +1,5 @@
 @layer components{
     .list_container{
-        margin-top: var(--mg-top);
+        @apply pt-50 lg:pt-100;
     }
 }

@@ -1,5 +1,6 @@
 'use client'
 import { IUser, loginUser } from '@/api/apiAuth';
+import { Button } from '@/components/Button';
 import React, { ChangeEvent } from 'react'
 
 type Props = {}
@@ -58,10 +59,11 @@ const Page = (props: Props) => {
                         {error}
                     </div>}
                 </div>
-            <button 
-            className='login_btn'
+            <Button 
+            primary
+            medium
             onClick={(e) => handleClick(e)}
-            >Login</button>
+            >Login</Button>
         </form>
     </div>
   )

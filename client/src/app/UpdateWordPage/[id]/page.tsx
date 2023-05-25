@@ -3,6 +3,7 @@ import { IParams, getUpdateWord, postUpdateWord } from "@/api/apiWords";
 import React from "react";
 import { IBody } from "@/api/apiWords";
 import authMiddleware from "@/authMiddleware";
+import { Button } from "@/components/Button";
 
 export interface Props {
     params: IParams
@@ -161,10 +162,10 @@ export default function Page ({params} : Props) {
                             </div>
                         )
                     })}
-                    <button onClick={(e) => handleAddMeaning(e)} className="form-defs_btn">Add more meaning</button>
+                    <Button onClick={(e) => handleAddMeaning(e)} xsmall primary>Add more meaning</Button>
                 </div>
                 
-                <button onClick={(e) => handlePostUpdate(e)} className="form-adding_btn"> Update word </button>
+                <Button onClick={(e) => handlePostUpdate(e)} large primary> Update word </Button>
             </form>
         </div>
     )    

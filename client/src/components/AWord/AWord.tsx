@@ -7,6 +7,7 @@ import {RiHeartAddFill} from 'react-icons/ri';
 import {IoMdHeartDislike} from 'react-icons/io';
 import { IBody, deleteWord } from '@/api/apiWords';
 import authMiddleware from '@/authMiddleware';
+import { Button } from '../Button';
 
 type Props = {
     word: IBody,
@@ -65,8 +66,8 @@ const AWord = ({word}: Props) => {
           )
         })}
         {validate && <div className='button_container'>
-            <button className='word_btn'> <Link href={`/UpdateWordPage/${word.idWord}`}>Update Word</Link> <RiHeartAddFill/>  </button>
-            <a className='word_btn' onClick={handleDelete} href='/ListPage'> Delete Word <IoMdHeartDislike/> </a>
+            <Button icon tertiary> <Link href={`/UpdateWordPage/${word.idWord}`}>Update Word</Link> <RiHeartAddFill/></Button>
+            <Button onClick={handleDelete} icon tertiary> <Link href='/ListPage'>Delete Word</Link> <IoMdHeartDislike/> </Button>
         </div>}
       </div>
       )

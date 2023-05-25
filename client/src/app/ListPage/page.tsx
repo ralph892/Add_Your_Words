@@ -35,7 +35,7 @@ export default function Page () {
         <div  className="list_container">
             {wordsResult.map((word,index) => {
                 return (
-                    <div key={index}>
+                    <div key={index} className="words_container">
                         <AWord word={word} />
                     </div>
                 )

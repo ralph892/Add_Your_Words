@@ -1,12 +1,12 @@
 @layer components {
     .box{
+        @apply w-250 lg:w-500;
         background-color: rgba(255, 255, 255, 0.715);
-        min-width: 500px;
         position: relative;
         top: var(--mg-bottom);
     }
     .tooltip_container{
-        width: 100%;
+        @apply: w-full;
         padding: 5px 0;
         text-align: center;
         border: 1px solid var(--border-input-color);

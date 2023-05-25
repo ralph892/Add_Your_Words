@@ -8,17 +8,24 @@
 @import "../app/LoginPage/LoginPage.css";
 @import "../app/RegisterPage/RegisterPage.css";
 @import "../components/ActionTippy/ActionTippy.css";
+@import "../components/Button/Button.css";
 
 :root{
-    --primary-color: rgb(237, 38, 71);
-    --primary-color-hover: rgb(235, 122, 141);
+    --primary-color: rgb(231, 70, 70);
+    --primary-color-hover: rgb(250, 135, 135);
     --border-input-color: rgb(154, 154, 154);
     --white-color: white;
     --bg-container-color: rgba(255, 255, 255, 0.452);
-    --bg-container-login-color: rgb(241, 241, 241);
+    --bg-container-login-color: rgb(255, 243, 226);
 
     --mg-top: 100px;
     --mg-bottom: 50px;
+}
+
+body{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
 }
 
 @layer components {
@@ -31,15 +38,15 @@
         background-position: 50%;
         display: flex;
         flex-direction: column;
-        align-items: center
+        align-items: center;
+        margin: 0;
     }
 
     .navbar{
-        @apply grid fixed w-full font-medium items-center;
+        @apply hidden fixed lg:grid w-full font-medium items-center h-40;
         grid-template-columns: 50% 50%;
         color: black;
         background-color: var(--bg-container-color);
-        height: 40px;
         z-index: 10;
         top:0;
     }
@@ -49,54 +56,31 @@
     }
 
     .action-btn_container{
-        @apply flex items-center justify-self-start gap-5;
-        margin-left: 20px;
+        @apply flex items-center justify-self-start gap-5 ml-20;
     }
 
     .account-btn_container{
-        @apply flex items-center justify-self-end gap-3;
-        margin-right: 20px;
+        @apply flex items-center justify-self-end gap-3 mr-20;
     }
 
-    .login_btn{
-        padding: 5px 15px;
-        border: 1px solid transparent;
-        background-color: var(--primary-color);
-        border-radius: 20px;
-        width:fit-content;
-    }
-    .login_btn:hover{
-        background-color: var(--primary-color-hover);
-        color: var(--white-color) !important;
-        border: 1px solid var(--white-color);
-    }
-    .register_btn{
-        padding: 5px 15px;
-        border: 1px solid transparent;
-        background-color: var(--white-color);
-        border-radius: 20px;
-        width: fit-content;
-    }
-    .register_btn:hover{
-        border: 1px solid var(--primary-color);
-        color: var(--primary-color);
-    }
 
     .account-user_container{
-        @apply flex items-center justify-self-end gap-5 ;
-        margin-right: 20px;
+        @apply flex items-center justify-self-end gap-5 mr-20;
     }
+
     .account-avatar{
-        width:40px;
-        height: 40px;
+        @apply w-30 lg:w-40 h-30 lg:h-40;
         border: 1px solid transparent;
         border-radius: 5px;
     }
 
+    .welcome_stm{
+        @apply hidden lg:block;
+    }
+
     .form_container{
+        @apply w-full lg:w-9/12 mt-100;
         background-color: var(--bg-container-color);
-        margin-top: var(--mg-top);
-        width: 75%;
         border: 1px solid var(--primary-color);
         border-radius: 10px;
     }
@@ -106,29 +90,47 @@
     }
 
     .search_container{
-        @apply flex flex-row items-center justify-center w-full;
+        @apply flex flex-col lg:flex-row items-center justify-center w-full mt-20 lg:mt-50 mb-20 lg:mb-50;
         color: var(--primary-color);
-        margin-top: calc(var(--mg-bottom) / 2);
-        margin-bottom: var(--mg-bottom);
     }
 
     .search_empty{
-        @apply w-1/12 h-8;
+        @apply w-1/12 h-8 hidden lg:block;
     }
     
     .search_input{
         @apply w-10/12 h-8 border-2 border-black px-5 rounded font-bold;
     }
+
     .search_input:focus{
         border: 2px solid var(--primary-color);
         outline: none;
     }
+
     .search_btn{
-        @apply w-1/12 h-8;
+        @apply w-full lg:w-1/12 h-8 mt-5 lg:my-0 ;
     }
 
     .search_icon{
         @apply w-full h-full;
+    }
+
+    /* responsive */
+    .navbar_response{
+        @apply flex fixed lg:hidden justify-between w-full px-2 h-30;
+        background-color: var(--bg-container-color);
+    }
+    .menu-btn_response{
+        @apply text-3xl h-30 w-30;
+        color: var(--primary-color);
+    }
+    .box_menuTippy{
+        @apply flex flex-col p-2 gap-2 text-sm items-center;
+        background-color: var(--white-color);
+        border-radius: 5px;
+    }
+    .box_menuTippy button:hover{
+        color: var(--primary-color);
     }
 
 }

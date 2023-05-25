@@ -2,6 +2,7 @@
 import React, { ChangeEvent } from 'react';
 
 import { IUser, createUser } from '@/api/apiAuth';
+import { Button } from '@/components/Button';
 
 type Props = {}
 
@@ -118,10 +119,11 @@ const Page = (props: Props) => {
                     </div>}
                 </div>
             </div>
-            <button 
-            className='register_btn'
+            <Button
+            primary 
+            medium
             onClick={(e) => handleClick(e)}
-            >Register</button>
+            >Register</Button>
         </form>
     </div>
   )

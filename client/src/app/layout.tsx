@@ -5,6 +5,9 @@ import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import React from 'react';
 import { ActionTippy } from '@/components/ActionTippy';
+import {MdMenuOpen} from 'react-icons/md';
+import Tippy from '@tippyjs/react/headless';
+import { Button } from '@/components/Button';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,16 +40,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
+        <div className='navbar_response'>
+          <Tippy
+              offset={[0,0]}
+              placement='bottom-start'
+              hideOnClick={true}
+              trigger='click'
+              interactive={true}
+              render={attrs => (
+                  <div className="box_menuTippy" tabIndex={-1} {...attrs}>
+                      <Button> <Link href='/'> Home </Link></Button>
+                      <Button> <Link href='/AddWordPage'>Add your word</Link> </Button>
+                      <Button> <Link href='/ListPage'>List all words</Link> </Button>
+                  </div>
+            )}
+          >
+            <button className='menu-btn_response'><MdMenuOpen /></button>
+          </Tippy>
+          {!validate ?
+              <div className='account-btn_container'>
+                <Button primary small> <Link href='/LoginPage'>Login</Link> </Button>
+                <Button secondary small> <Link href='/RegisterPage'>Register</Link> </Button>
+              </div> : 
+              <ActionTippy>
+                <div className='account-user_container'>
+                  <img src='/images/avatar.jfif' className='account-avatar' alt='account-avatar' />
+                </div>
+            </ActionTippy> 
+            }
+        </div>
         <div className='navbar'>
             <div className='action-btn_container'>
-              <button> <Link href='/'> Home </Link></button>
-              <button> <Link href='/AddWordPage'>Add your word</Link> </button>
-              <button> <Link href='/ListPage'>List all words</Link> </button>
+              <Button> <Link href='/'> Home </Link></Button>
+              <Button> <Link href='/AddWordPage'>Add your word</Link> </Button>
+              <Button> <Link href='/ListPage'>List all words</Link> </Button>
             </div>
             {!validate ?
               <div className='account-btn_container'>
-                <button className='login_btn'> <Link href='/LoginPage'>Login</Link> </button>
-                <button className='register_btn'> <Link href='/RegisterPage'>Register</Link> </button>
+                <Button primary medium > <Link href='/LoginPage'>Login</Link> </Button>
+                <Button secondary medium> <Link href='/RegisterPage'>Register</Link> </Button>
               </div> : 
               <ActionTippy>
                 <div className='account-user_container'>

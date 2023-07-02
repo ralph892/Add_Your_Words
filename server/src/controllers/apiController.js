@@ -1,7 +1,15 @@
 import connectDB from "../config/connectDB.js";
 
+import jwt from 'jsonwebtoken';
+const secretKey = process.env.SECRET_KEY;
+
+
 export const getAllWords = async (req, res) => {
-    const [rows, fields] = await connectDB.execute('SELECT words.id as idWord,word,phonetic,wordType,meaning,vietnamese from `Words`,`Definitions` WHERE Words.id = definitions.idWord ');
+    const token = req.cookies.jwt;
+    const decode = jwt.verify(token, secretKey);
+    const idUser = decode.idUser;
+
+    const [rows, fields] = await connectDB.execute('SELECT words.id as idWord,word,phonetic,wordType,meaning,vietnamese from `Words`,`Definitions` WHERE Words.id = definitions.idWord AND Words.idUser = ? ', [idUser]);
     let dataRows = rows;
     if (dataRows.length === 1) {
         dataRows[0].meaning = [dataRows[0].meaning];
@@ -103,7 +111,11 @@ export const getSearchWord = async (req, res) => {
 export const postAddWord = async (req, res) => {
     const { word, phonetic, wordType, meaning, vietnamese } = req.body.data;
     const idWord = `${word + Date.now()}}`;
-    await connectDB.execute('INSERT INTO `Words`(id,word, phonetic, wordType) VALUES (?,?,?,?)', [idWord, word, phonetic, wordType ?? 'unknown']);
+    const token = req.cookies.jwt;
+    const decode = jwt.verify(token, secretKey);
+    const idUser = decode.idUser;
+
+    await connectDB.execute('INSERT INTO `Words`(id,word, phonetic, wordType, idUser) VALUES (?,?,?,?,?)', [idWord, word, phonetic, wordType ?? 'unknown', idUser]);
     if (Array.isArray(meaning))
         for (let i = 0; i < meaning.length; i++) {
             await connectDB.execute('INSERT INTO `Definitions`(idWord,meaning,vietnamese) VALUES (?,?,?)', [idWord, meaning[i], vietnamese[i]]);
